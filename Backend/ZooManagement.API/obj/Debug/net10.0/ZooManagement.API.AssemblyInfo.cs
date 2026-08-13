@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZooManagement.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+229f9a229ac5312e963958e4592c4ad763bd9f33")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a3f60d87c7819406710a0af377410ea9146cfc7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZooManagement.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZooManagement.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

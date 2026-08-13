@@ -33,6 +33,9 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+// Redirect root to the weather forecast endpoint to avoid 404 at '/'
+app.MapGet("/", () => Results.Redirect("/weatherforecast"));
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

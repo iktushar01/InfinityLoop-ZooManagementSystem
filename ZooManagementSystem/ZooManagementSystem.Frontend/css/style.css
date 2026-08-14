@@ -42,8 +42,16 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--zoo-bg);
   color: var(--zoo-text);
+  margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+img,
+svg,
+canvas,
+video {
+  max-width: 100%;
 }
 
 body::before {
@@ -88,6 +96,7 @@ body::before {
   margin-left: var(--zoo-sidebar-width);
   display: flex;
   flex-direction: column;
+  min-width: 0;
   min-height: 100vh;
   transition: var(--zoo-transition);
 }
@@ -218,12 +227,14 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 40;
+  gap: 1rem;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 1rem;
+  min-width: 0;
 }
 
 .menu-toggle {
@@ -281,6 +292,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .navbar-icon-btn {
@@ -372,6 +384,7 @@ body::before {
   border: 1px solid var(--zoo-border);
   border-radius: var(--zoo-radius);
   padding: 1.25rem;
+  min-width: 0;
   transition: var(--zoo-transition);
 }
 
@@ -383,6 +396,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -401,7 +415,7 @@ body::before {
 /* Stat Cards */
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -468,6 +482,10 @@ body::before {
   margin-bottom: 1.5rem;
 }
 
+.page-header > div {
+  min-width: 0;
+}
+
 .page-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -493,6 +511,8 @@ body::before {
   transition: var(--zoo-transition);
   text-decoration: none;
   white-space: nowrap;
+  max-width: 100%;
+  justify-content: center;
 }
 
 .btn-primary {
@@ -543,11 +563,14 @@ body::before {
 /* Tables */
 .table-container {
   overflow-x: auto;
+  width: 100%;
   border-radius: var(--zoo-radius);
+  -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   font-size: 0.875rem;
 }
@@ -589,6 +612,7 @@ body::before {
   border-bottom: 1px solid rgba(74, 222, 128, 0.06);
   color: var(--zoo-text);
   vertical-align: middle;
+  overflow-wrap: anywhere;
 }
 
 .data-table tbody tr {
@@ -689,12 +713,13 @@ body::before {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1rem;
 }
 
 .form-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.5rem;
   padding-top: 1.5rem;
@@ -706,12 +731,13 @@ body::before {
   display: flex;
   gap: 0.35rem;
   flex-wrap: wrap;
+  min-width: max-content;
 }
 
 /* Charts */
 .chart-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -773,6 +799,13 @@ body::before {
 .activity-content small {
   font-size: 0.75rem;
   color: var(--zoo-text-dim);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  font-size: 0.875rem;
 }
 
 /* Modal */
@@ -848,6 +881,7 @@ body::before {
 
 .modal-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.75rem;
   padding: 1rem 1.5rem;
@@ -859,6 +893,7 @@ body::before {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  left: auto;
   z-index: 200;
   display: flex;
   flex-direction: column;
@@ -877,6 +912,7 @@ body::before {
   box-shadow: var(--zoo-shadow);
   min-width: 280px;
   max-width: 400px;
+  width: min(400px, calc(100vw - 2rem));
   pointer-events: auto;
   animation: slideInRight 0.3s ease-out;
 }
@@ -1012,6 +1048,7 @@ body::before {
   color: var(--zoo-text);
   font-size: 0.8rem;
   outline: none;
+  max-width: 100%;
 }
 
 /* Tabs */
@@ -1075,14 +1112,23 @@ body::before {
 
 /* Responsive */
 @media (max-width: 1024px) {
+  :root {
+    --zoo-sidebar-width: 232px;
+  }
+
   .chart-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
+  :root {
+    --zoo-navbar-height: auto;
+  }
+
   .sidebar {
     transform: translateX(-100%);
+    width: min(86vw, 280px);
   }
 
   .sidebar.open {
@@ -1093,12 +1139,17 @@ body::before {
     margin-left: 0;
   }
 
+  .navbar {
+    min-height: 58px;
+    padding: 0.65rem 1rem;
+  }
+
   .menu-toggle {
     display: flex;
   }
 
   .search-box {
-    width: 200px;
+    width: min(42vw, 240px);
   }
 
   .user-info {
@@ -1106,18 +1157,78 @@ body::before {
   }
 
   .stat-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .page-header {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .page-header .btn,
+  .page-header button {
+    width: 100%;
+  }
+
+  .glass-card {
+    padding: 1rem;
+  }
+
+  .glass-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filters-bar {
+    width: 100%;
+  }
+
+  .filter-select,
+  .filters-bar .btn,
+  .filters-bar button,
+  .filters-bar input {
+    flex: 1 1 160px;
+  }
+
+  .modal {
+    max-height: calc(100vh - 1rem);
+  }
 }
 
 @media (max-width: 480px) {
+  .page-content {
+    padding: 1rem 0.75rem;
+  }
+
+  .navbar {
+    padding-inline: 0.75rem;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    gap: 0.5rem;
+  }
+
+  .navbar-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .user-profile {
+    padding: 0.25rem;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.8rem;
+  }
+
   .stat-grid {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
   .search-box {
@@ -1126,5 +1237,60 @@ body::before {
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions,
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn,
+  .form-actions button,
+  .modal-footer .btn,
+  .modal-footer button {
+    width: 100%;
+  }
+
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0.5rem;
+  }
+
+  .modal {
+    max-width: none;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-inline: 1rem;
+  }
+
+  .chart-container {
+    height: 240px;
+  }
+
+  .toast-container {
+    right: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .toast {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tab-btn {
+    padding-inline: 0.9rem;
+  }
+
+  .loading-inline,
+  .empty-state {
+    padding: 2rem 1rem;
   }
 }

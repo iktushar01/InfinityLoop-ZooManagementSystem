@@ -146,7 +146,7 @@ async function viewAnimal(id) {
     showModal(
       escapeHtml(animal.name),
       `
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;font-size:0.875rem;">
+      <div class="detail-grid">
         <div><span style="color:var(--zoo-text-dim)">Species:</span> ${escapeHtml(animal.species)}</div>
         <div><span style="color:var(--zoo-text-dim)">Type:</span> ${escapeHtml(animal.animalType)}</div>
         <div><span style="color:var(--zoo-text-dim)">Age:</span> ${animal.age} years</div>

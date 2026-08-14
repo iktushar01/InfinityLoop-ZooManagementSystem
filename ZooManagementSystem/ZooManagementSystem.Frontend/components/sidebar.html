@@ -1,0 +1,66 @@
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-icon">
+      <i class="fa-solid fa-paw"></i>
+    </div>
+    <div class="sidebar-logo-text">
+      <h1>Infinity Loop</h1>
+      <span>Zoo Management</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="../index.html" class="sidebar-link" data-page="dashboard">
+      <i class="fa-solid fa-gauge-high"></i>
+      <span>Dashboard</span>
+    </a>
+    <a href="animals.html" class="sidebar-link" data-page="animals">
+      <i class="fa-solid fa-paw"></i>
+      <span>Animals</span>
+    </a>
+    <a href="keepers.html" class="sidebar-link" data-page="keepers">
+      <i class="fa-solid fa-user-nurse"></i>
+      <span>Keepers</span>
+    </a>
+    <a href="enclosures.html" class="sidebar-link" data-page="enclosures">
+      <i class="fa-solid fa-tree"></i>
+      <span>Enclosures</span>
+    </a>
+    <a href="feeding.html" class="sidebar-link" data-page="feeding">
+      <i class="fa-solid fa-bowl-food"></i>
+      <span>Feeding Schedule</span>
+    </a>
+    <a href="health.html" class="sidebar-link" data-page="health">
+      <i class="fa-solid fa-heart-pulse"></i>
+      <span>Health Records</span>
+    </a>
+    <a href="tickets.html" class="sidebar-link" data-page="tickets">
+      <i class="fa-solid fa-ticket"></i>
+      <span>Tickets</span>
+    </a>
+    <a href="reports.html" class="sidebar-link" data-page="reports">
+      <i class="fa-solid fa-chart-pie"></i>
+      <span>Reports</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <p>&copy; 2026 Infinity Loop Zoo</p>
+  </div>
+</aside>
+
+<script>
+  // Fix sidebar links based on current location
+  (function () {
+    const isRoot = !window.location.pathname.includes('/pages/');
+    const prefix = isRoot ? 'pages/' : '';
+    const dashboardHref = isRoot ? 'index.html' : '../index.html';
+
+    document.querySelector('.sidebar-link[data-page="dashboard"]').href = dashboardHref;
+
+    ['animals', 'keepers', 'enclosures', 'feeding', 'health', 'tickets', 'reports'].forEach((page) => {
+      const link = document.querySelector(`.sidebar-link[data-page="${page}"]`);
+      if (link) link.href = isRoot ? `pages/${page}.html` : `${page}.html`;
+    });
+  })();
+</script>

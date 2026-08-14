@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports | Infinity Loop Zoo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="reports">
+  <div class="app-layout">
+    <div id="sidebar-container"></div>
+    <div class="main-content">
+      <div id="navbar-container"></div>
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Reports Dashboard</h1>
+            <p class="page-subtitle">Analytics and insights for zoo operations</p>
+          </div>
+          <div class="filters-bar" style="margin-bottom:0">
+            <input type="date" id="date-from" class="filter-select" />
+            <input type="date" id="date-to" class="filter-select" />
+            <button class="btn btn-secondary btn-sm" id="apply-date-filter">
+              <i class="fa-solid fa-filter"></i> Apply Filter
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="animal-report">Animal Report</button>
+          <button class="tab-btn" data-tab="visitor-report">Visitor Report</button>
+          <button class="tab-btn" data-tab="revenue-report">Revenue Report</button>
+          <button class="tab-btn" data-tab="food-report">Food Requirements</button>
+        </div>
+
+        <!-- Animal Report -->
+        <div class="tab-panel active" id="animal-report">
+          <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+            <div class="stat-card" style="--stat-color:#22c55e">
+              <div class="stat-card-value" id="report-total-animals">—</div>
+              <div class="stat-card-label">Total Animals</div>
+            </div>
+            <div class="stat-card" style="--stat-color:#ef4444">
+              <div class="stat-card-value" id="report-sick-animals">—</div>
+              <div class="stat-card-label">Sick Animals</div>
+            </div>
+            <div class="stat-card" style="--stat-color:#38bdf8">
+              <div class="stat-card-value" id="report-enclosures-used">—</div>
+              <div class="stat-card-label">Enclosures Used</div>
+            </div>
+          </div>
+          <div class="chart-grid">
+            <div class="glass-card">
+              <h3 class="glass-card-title">Animals by Category</h3>
+              <div class="chart-container"><canvas id="report-chart-categories"></canvas></div>
+            </div>
+            <div class="glass-card">
+              <h3 class="glass-card-title">Animals per Enclosure</h3>
+              <div class="chart-container"><canvas id="report-chart-enclosures"></canvas></div>
+            </div>
+          </div>
+          <div class="glass-card">
+            <h3 class="glass-card-title" style="margin-bottom:1rem">Sick Animals</h3>
+            <div class="table-container">
+              <table class="data-table" id="sick-animals-table">
+                <thead>
+                  <tr><th>Name</th><th>Species</th><th>Type</th><th>Health Status</th></tr>
+                </thead>
+                <tbody id="sick-animals-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visitor Report -->
+        <div class="tab-panel" id="visitor-report">
+          <div class="stat-grid" style="grid-template-columns:repeat(2,1fr)">
+            <div class="stat-card" style="--stat-color:#a78bfa">
+              <div class="stat-card-value" id="report-total-visitors">—</div>
+              <div class="stat-card-label">Total Visitors</div>
+            </div>
+          </div>
+          <div class="glass-card">
+            <h3 class="glass-card-title">Visitors by Date</h3>
+            <div class="chart-container"><canvas id="report-chart-visitors"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Revenue Report -->
+        <div class="tab-panel" id="revenue-report">
+          <div class="stat-grid">
+            <div class="stat-card" style="--stat-color:#f59e0b">
+              <div class="stat-card-value" id="report-total-revenue">—</div>
+              <div class="stat-card-label">Total Revenue</div>
+            </div>
+            <div class="stat-card" style="--stat-color:#22c55e">
+              <div class="stat-card-value" id="report-ticket-count">—</div>
+              <div class="stat-card-label">Tickets Sold</div>
+            </div>
+            <div class="stat-card" style="--stat-color:#14b8a6">
+              <div class="stat-card-value" id="report-avg-price">—</div>
+              <div class="stat-card-label">Average Ticket Price</div>
+            </div>
+          </div>
+          <div class="glass-card">
+            <h3 class="glass-card-title">Revenue Breakdown</h3>
+            <div class="chart-container"><canvas id="report-chart-revenue"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Food Requirements -->
+        <div class="tab-panel" id="food-report">
+          <div class="stat-grid">
+            <div class="stat-card" style="--stat-color:#22c55e">
+              <div class="stat-card-value" id="report-daily-food">—</div>
+              <div class="stat-card-label">Daily Food (kg)</div>
+            </div>
+            <div class="stat-card" style="--stat-color:#f59e0b">
+              <div class="stat-card-value" id="report-weekly-food">—</div>
+              <div class="stat-card-label">Weekly Food (kg)</div>
+            </div>
+            <div class="stat-card" style="--stat-color:#ef4444">
+              <div class="stat-card-value" id="report-monthly-food">—</div>
+              <div class="stat-card-label">Monthly Food (kg)</div>
+            </div>
+          </div>
+          <div class="glass-card">
+            <h3 class="glass-card-title">Food Requirement Overview</h3>
+            <div class="chart-container"><canvas id="report-chart-food"></canvas></div>
+          </div>
+        </div>
+      </main>
+      <footer class="app-footer">&copy; 2026 Infinity Loop Zoo Management System. All rights reserved.</footer>
+    </div>
+  </div>
+  <div id="modal-container"></div>
+  <div class="toast-container" id="toast-mount"></div>
+  <script src="../js/api.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/reports.js"></script>
+</body>
+</html>

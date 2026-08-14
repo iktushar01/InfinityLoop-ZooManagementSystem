@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Infinity Loop Zoo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="dashboard">
+  <div class="app-layout">
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <div id="navbar-container"></div>
+
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Welcome back! Here's your zoo overview.</p>
+          </div>
+          <a href="pages/add-animal.html" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i> Add Animal
+          </a>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stat-grid" id="stat-cards">
+          <div class="stat-card" style="--stat-color:#22c55e">
+            <div class="stat-card-icon"><i class="fa-solid fa-paw"></i></div>
+            <div class="stat-card-value" id="stat-animals">—</div>
+            <div class="stat-card-label">Total Animals</div>
+          </div>
+          <div class="stat-card" style="--stat-color:#14b8a6">
+            <div class="stat-card-icon"><i class="fa-solid fa-user-nurse"></i></div>
+            <div class="stat-card-value" id="stat-keepers">—</div>
+            <div class="stat-card-label">Total Keepers</div>
+          </div>
+          <div class="stat-card" style="--stat-color:#38bdf8">
+            <div class="stat-card-icon"><i class="fa-solid fa-tree"></i></div>
+            <div class="stat-card-value" id="stat-enclosures">—</div>
+            <div class="stat-card-label">Total Enclosures</div>
+          </div>
+          <div class="stat-card" style="--stat-color:#a78bfa">
+            <div class="stat-card-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-card-value" id="stat-visitors">—</div>
+            <div class="stat-card-label">Total Visitors</div>
+          </div>
+          <div class="stat-card" style="--stat-color:#f59e0b">
+            <div class="stat-card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="stat-card-value" id="stat-revenue">—</div>
+            <div class="stat-card-label">Total Revenue</div>
+          </div>
+          <div class="stat-card" style="--stat-color:#ef4444">
+            <div class="stat-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="stat-card-value" id="stat-sick">—</div>
+            <div class="stat-card-label">Sick Animals</div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="chart-grid">
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div>
+                <h3 class="glass-card-title">Animals by Category</h3>
+                <p class="glass-card-subtitle">Distribution across species types</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-categories"></canvas>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div>
+                <h3 class="glass-card-title">Revenue Overview</h3>
+                <p class="glass-card-subtitle">Ticket sales breakdown</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-revenue"></canvas>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div>
+                <h3 class="glass-card-title">Visitor Statistics</h3>
+                <p class="glass-card-subtitle">Visitors by date</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-visitors"></canvas>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <div>
+                <h3 class="glass-card-title">Health Status</h3>
+                <p class="glass-card-subtitle">Current animal health overview</p>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-health"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="glass-card">
+          <div class="glass-card-header">
+            <div>
+              <h3 class="glass-card-title">Recent Activities</h3>
+              <p class="glass-card-subtitle">Latest zoo operations</p>
+            </div>
+          </div>
+          <ul class="activity-list" id="activity-list">
+            <li class="loading-inline"><div class="spinner"></div> Loading activities...</li>
+          </ul>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        &copy; 2026 Infinity Loop Zoo Management System. All rights reserved.
+      </footer>
+    </div>
+  </div>
+
+  <div id="modal-container"></div>
+  <div class="toast-container" id="toast-mount"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

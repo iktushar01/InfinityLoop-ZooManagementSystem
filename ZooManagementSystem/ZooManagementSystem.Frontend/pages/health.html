@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Records | Infinity Loop Zoo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-page="health">
+  <div class="app-layout">
+    <div id="sidebar-container"></div>
+    <div class="main-content">
+      <div id="navbar-container"></div>
+      <main class="page-content">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Health Records</h1>
+            <p class="page-subtitle">Track animal health and veterinary visits</p>
+          </div>
+          <button class="btn btn-primary" id="add-health-btn">
+            <i class="fa-solid fa-plus"></i> Add Health Record
+          </button>
+        </div>
+
+        <div class="filters-bar">
+          <select id="filter-health-status" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="Healthy">Healthy</option>
+            <option value="Sick">Sick</option>
+            <option value="Critical">Critical</option>
+          </select>
+        </div>
+
+        <div class="glass-card">
+          <div class="table-container">
+            <table class="data-table" id="health-table">
+              <thead>
+                <tr>
+                  <th>Animal</th>
+                  <th>Date</th>
+                  <th>Vet Name</th>
+                  <th>Description</th>
+                  <th>Health Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="health-tbody">
+                <tr><td colspan="6" class="loading-inline"><div class="spinner"></div> Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+      <footer class="app-footer">&copy; 2026 Infinity Loop Zoo Management System. All rights reserved.</footer>
+    </div>
+  </div>
+  <div id="modal-container"></div>
+  <div class="toast-container" id="toast-mount"></div>
+  <script src="../js/api.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/health.js"></script>
+</body>
+</html>

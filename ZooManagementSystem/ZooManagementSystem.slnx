@@ -3,4 +3,5 @@
   <Project Path="ZooManagementSystem.Application/ZooManagementSystem.Application.csproj" />
   <Project Path="ZooManagementSystem.Domain/ZooManagementSystem.Domain.csproj" />
   <Project Path="ZooManagementSystem.Infrastructure/ZooManagementSystem.Infrastructure.csproj" />
+  <Project Path="ZooManagementSystem.Tests/ZooManagementSystem.Tests.csproj" />
 </Solution>

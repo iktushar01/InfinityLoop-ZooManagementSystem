@@ -13,8 +13,8 @@ public static class DependencyInjection
     {
         var settings = new MongoDbSettings
         {
-            ConnectionString = configuration["MongoDb:ConnectionString"] ?? Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? "mongodb://localhost:27017",
-            DatabaseName = configuration["MongoDb:DatabaseName"] ?? Environment.GetEnvironmentVariable("MONGODB_DATABASE") ?? "ZooManagementSystem"
+            ConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? configuration["MongoDb:ConnectionString"] ?? "mongodb://localhost:27017",
+            DatabaseName = Environment.GetEnvironmentVariable("MONGODB_DATABASE") ?? configuration["MongoDb:DatabaseName"] ?? "ZooManagementSystem"
         };
 
         services.AddSingleton(settings);

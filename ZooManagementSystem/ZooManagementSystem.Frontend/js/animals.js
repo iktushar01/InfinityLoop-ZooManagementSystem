@@ -9,12 +9,13 @@ let enclosuresMap = {};
 
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
+  const page = document.body.dataset.page;
 
   if (path.includes('add-animal')) {
     initAddAnimalForm();
   } else if (path.includes('edit-animal')) {
     initEditAnimalForm();
-  } else if (path.includes('animals.html')) {
+  } else if (page === 'animals' || path.includes('animals.html') || path.endsWith('/animals') || path.endsWith('/animals/')) {
     initAnimalsList();
   }
 });
@@ -22,21 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ========== Animals List ========== */
 
 async function initAnimalsList() {
-  await withLoading(async () => {
-    const [animals, keepers, enclosures] = await Promise.all([
-      AnimalsAPI.getAll(),
-      KeepersAPI.getAll(),
-      EnclosuresAPI.getAll(),
-    ]);
+  try {
+    await withLoading(async () => {
+      const [animals, keepers, enclosures] = await Promise.all([
+        AnimalsAPI.getAll(),
+        KeepersAPI.getAll(),
+        EnclosuresAPI.getAll(),
+      ]);
 
-    animalsData = animals;
-    keepersMap = buildLookup(keepers);
-    enclosuresMap = buildLookup(enclosures);
+      animalsData = animals;
+      keepersMap = buildLookup(keepers);
+      enclosuresMap = buildLookup(enclosures);
 
-    renderAnimalsTable(animals);
-    initTableSort('animals-table');
-    initFilters();
-  }, 'Failed to load animals');
+      renderAnimalsTable(animals);
+      initTableSort('animals-table');
+      initFilters();
+    }, 'Failed to load animals');
+  } catch (error) {
+    renderAnimalsLoadError(error);
+  }
 }
 
 function renderAnimalsTable(animals) {
@@ -98,6 +103,19 @@ function renderAnimalsTable(animals) {
     </tr>`
     )
     .join('');
+}
+
+function renderAnimalsLoadError(error) {
+  const tbody = document.getElementById('animals-tbody');
+  if (!tbody) return;
+
+  tbody.innerHTML = `
+    <tr><td colspan="10">
+      <div class="empty-state">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>${escapeHtml(error.message || 'Failed to load animals')}</p>
+      </div>
+    </td></tr>`;
 }
 
 function initFilters() {

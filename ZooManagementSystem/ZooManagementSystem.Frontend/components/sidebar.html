@@ -53,14 +53,15 @@
   // Fix sidebar links based on current location
   (function () {
     const isRoot = !window.location.pathname.includes('/pages/');
-    const prefix = isRoot ? 'pages/' : '';
+    const canUseCleanRoutes = window.location.protocol === 'http:' || window.location.protocol === 'https:';
     const dashboardHref = isRoot ? 'index.html' : '../index.html';
 
-    document.querySelector('.sidebar-link[data-page="dashboard"]').href = dashboardHref;
+    document.querySelector('.sidebar-link[data-page="dashboard"]').href = canUseCleanRoutes ? '/' : dashboardHref;
 
     ['animals', 'keepers', 'enclosures', 'feeding', 'health', 'tickets', 'reports'].forEach((page) => {
       const link = document.querySelector(`.sidebar-link[data-page="${page}"]`);
-      if (link) link.href = isRoot ? `pages/${page}.html` : `${page}.html`;
+      if (!link) return;
+      link.href = canUseCleanRoutes ? `/${page}` : isRoot ? `pages/${page}.html` : `${page}.html`;
     });
   })();
 </script>

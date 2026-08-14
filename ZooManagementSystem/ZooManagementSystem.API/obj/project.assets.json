@@ -366,6 +366,9 @@
       "ZooManagementSystem.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "MongoDB.Bson": "3.11.0"
+        },
         "compile": {
           "bin/placeholder/ZooManagementSystem.Domain.dll": {}
         },
@@ -377,6 +380,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "MongoDB.Driver": "3.11.0",
           "ZooManagementSystem.Domain": "1.0.0"
         },
         "compile": {

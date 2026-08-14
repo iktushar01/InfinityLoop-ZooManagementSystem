@@ -1,11 +1,47 @@
 {
   "version": 4,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "MongoDB.Bson/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MongoDB.Bson.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MongoDB.Bson.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MongoDB.Bson/3.11.0": {
+      "sha512": "M3yEubl7SbOl6N+m0L4geRejb3jZTXTs4J77fZUeXgireOPzFTT7taZpVSVOVXAMmS2deb6aS1HPe52oxX/Vyg==",
+      "type": "package",
+      "path": "mongodb.bson/3.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net472/MongoDB.Bson.dll",
+        "lib/net472/MongoDB.Bson.xml",
+        "lib/net6.0/MongoDB.Bson.dll",
+        "lib/net6.0/MongoDB.Bson.xml",
+        "lib/netstandard2.1/MongoDB.Bson.dll",
+        "lib/netstandard2.1/MongoDB.Bson.xml",
+        "mongodb.bson.3.11.0.nupkg.sha512",
+        "mongodb.bson.nuspec",
+        "packageIcon.png"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "MongoDB.Bson >= 3.11.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Tushar\\.nuget\\packages\\": {}
@@ -53,6 +89,12 @@
       "net10.0": {
         "framework": "net10.0",
         "targetAlias": "net10.0",
+        "dependencies": {
+          "MongoDB.Bson": {
+            "target": "Package",
+            "version": "[3.11.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

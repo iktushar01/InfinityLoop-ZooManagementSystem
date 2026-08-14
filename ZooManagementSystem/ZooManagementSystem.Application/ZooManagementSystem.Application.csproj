@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\ZooManagementSystem.Domain\ZooManagementSystem.Domain.csproj" />
-    <PackageReference Include="MongoDB.Driver" Version="3.11.0" />
+    <ProjectReference Include="..\ZooManagementSystem.Infrastructure\ZooManagementSystem.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

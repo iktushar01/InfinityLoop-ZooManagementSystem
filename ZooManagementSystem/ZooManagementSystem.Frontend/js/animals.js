@@ -54,7 +54,7 @@ function renderAnimalsTable(animals) {
         <div class="empty-state">
           <i class="fa-solid fa-paw"></i>
           <p>No animals found</p>
-          <a href="add-animal.html" class="btn btn-primary btn-sm">Add First Animal</a>
+          <a href="add-animal" class="btn btn-primary btn-sm">Add First Animal</a>
         </div>
       </td></tr>`;
     return;
@@ -80,7 +80,7 @@ function renderAnimalsTable(animals) {
           <button class="btn btn-secondary btn-sm btn-icon" title="View" onclick="viewAnimal('${a.id}')">
             <i class="fa-solid fa-eye"></i>
           </button>
-          <a href="edit-animal.html?id=${a.id}" class="btn btn-secondary btn-sm btn-icon" title="Edit">
+          <a href="edit-animal?id=${a.id}" class="btn btn-secondary btn-sm btn-icon" title="Edit">
             <i class="fa-solid fa-pen"></i>
           </a>
           <button class="btn btn-danger btn-sm btn-icon" title="Delete" onclick="deleteAnimal('${a.id}', '${escapeHtml(a.name)}')">
@@ -365,7 +365,7 @@ function initAddAnimalForm() {
     await withLoading(async () => {
       await AnimalsAPI.create(payload);
       showToast('Animal added successfully!', 'success');
-      setTimeout(() => (window.location.href = 'animals.html'), 800);
+      setTimeout(() => (window.location.href = 'animals'), 800);
     }, 'Failed to add animal');
   });
 }
@@ -376,7 +376,7 @@ async function initEditAnimalForm() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
   if (!id) {
-    window.location.href = 'animals.html';
+    window.location.href = 'animals';
     return;
   }
 
@@ -456,7 +456,7 @@ function renderEditForm(animal, keepers, enclosures) {
         </div>
       </div>
       <div class="form-actions">
-        <button type="button" class="btn btn-secondary" onclick="location.href='animals.html'">Cancel</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='animals'">Cancel</button>
         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Save Changes</button>
       </div>
     </form>`;
@@ -485,7 +485,7 @@ function renderEditForm(animal, keepers, enclosures) {
     await withLoading(async () => {
       await AnimalsAPI.update(animal.id, payload);
       showToast('Animal updated successfully!', 'success');
-      setTimeout(() => (window.location.href = 'animals.html'), 800);
+      setTimeout(() => (window.location.href = 'animals'), 800);
     }, 'Failed to update animal');
   });
 }

@@ -260,11 +260,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj",
+      "projectUniqueName": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj",
       "projectName": "ZooManagementSystem.Infrastructure",
-      "projectPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj",
+      "projectPath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Tushar\\.nuget\\packages\\",
-      "outputPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\obj\\",
+      "outputPath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tushar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -282,8 +282,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Domain\\ZooManagementSystem.Domain.csproj": {
-              "projectPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Domain\\ZooManagementSystem.Domain.csproj"
+            "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Domain\\ZooManagementSystem.Domain.csproj": {
+              "projectPath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Domain\\ZooManagementSystem.Domain.csproj"
             }
           }
         }

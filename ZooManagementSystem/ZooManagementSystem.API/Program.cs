@@ -15,7 +15,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("Frontend", policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            .SetIsOriginAllowed(origin => true)
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
 });
 builder.Services.AddZooManagement(builder.Configuration);
 
@@ -26,7 +32,6 @@ app.UseSwaggerUI();
 
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors("Frontend");
-app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();

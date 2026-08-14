@@ -3,7 +3,7 @@
  * Reusable HTTP client for Zoo Management System backend
  */
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5255/api';
 
 /**
  * Core fetch wrapper with error handling

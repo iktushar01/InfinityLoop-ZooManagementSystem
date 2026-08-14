@@ -363,6 +363,20 @@
           "lib/net7.0/ZstdSharp.dll": {}
         }
       },
+      "ZooManagementSystem.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "ZooManagementSystem.Domain": "1.0.0",
+          "ZooManagementSystem.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ZooManagementSystem.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZooManagementSystem.Application.dll": {}
+        }
+      },
       "ZooManagementSystem.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -1145,6 +1159,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "ZooManagementSystem.Application/1.0.0": {
+      "type": "project",
+      "path": "../ZooManagementSystem.Application/ZooManagementSystem.Application.csproj",
+      "msbuildProject": "../ZooManagementSystem.Application/ZooManagementSystem.Application.csproj"
+    },
     "ZooManagementSystem.Domain/1.0.0": {
       "type": "project",
       "path": "../ZooManagementSystem.Domain/ZooManagementSystem.Domain.csproj",
@@ -1163,6 +1182,7 @@
       "Microsoft.AspNetCore.OpenApi >= 10.0.8",
       "MongoDB.Driver >= 3.11.0",
       "Swashbuckle.AspNetCore >= 10.2.3",
+      "ZooManagementSystem.Application >= 1.0.0",
       "ZooManagementSystem.Domain >= 1.0.0",
       "ZooManagementSystem.Infrastructure >= 1.0.0"
     ]
@@ -1195,11 +1215,14 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
+            "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Application\\ZooManagementSystem.Application.csproj": {
+              "projectPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Application\\ZooManagementSystem.Application.csproj"
+            },
             "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Domain\\ZooManagementSystem.Domain.csproj": {
               "projectPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Domain\\ZooManagementSystem.Domain.csproj"
             },
-            "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj": {
-              "projectPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj"
+            "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj": {
+              "projectPath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.Infrastructure\\ZooManagementSystem.Infrastructure.csproj"
             }
           }
         }

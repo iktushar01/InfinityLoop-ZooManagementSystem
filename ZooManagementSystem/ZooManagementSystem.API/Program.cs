@@ -1,30 +1,31 @@
 using DotNetEnv;
-using ZooManagementSystem.API.Database;
+using System.Text.Json.Serialization;
+using ZooManagementSystem.API.Extensions;
+using ZooManagementSystem.API.Middleware;
 
 Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddSingleton(new MongoDbSettings
+builder.Services.AddCors(options =>
 {
-    ConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING")!,
-    DatabaseName = Environment.GetEnvironmentVariable("MONGODB_DATABASE")!
+    options.AddPolicy("Frontend", policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
-
-builder.Services.AddSingleton<MongoDbContext>();
+builder.Services.AddZooManagement(builder.Configuration);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseCors("Frontend");
 app.UseHttpsRedirection();
 app.MapControllers();
 

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ZooManagementSystem.Application\ZooManagementSystem.Application.csproj" />
     <ProjectReference Include="..\ZooManagementSystem.Domain\ZooManagementSystem.Domain.csproj" />
     <ProjectReference Include="..\ZooManagementSystem.Infrastructure\ZooManagementSystem.Infrastructure.csproj" />
   </ItemGroup>

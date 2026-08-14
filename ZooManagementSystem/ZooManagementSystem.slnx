@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="ZooManagementSystem.API/ZooManagementSystem.API.csproj" />
+  <Project Path="ZooManagementSystem.Application/ZooManagementSystem.Application.csproj" />
   <Project Path="ZooManagementSystem.Domain/ZooManagementSystem.Domain.csproj" />
   <Project Path="ZooManagementSystem.Infrastructure/ZooManagementSystem.Infrastructure.csproj" />
 </Solution>

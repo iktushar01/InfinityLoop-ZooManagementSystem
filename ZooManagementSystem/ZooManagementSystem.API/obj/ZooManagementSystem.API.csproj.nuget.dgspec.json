@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj": {}
+    "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj": {}
   },
   "projects": {
-    "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj": {
+    "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj",
+        "projectUniqueName": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj",
         "projectName": "ZooManagementSystem.API",
-        "projectPath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj",
+        "projectPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj",
         "packagesPath": "C:\\Users\\Tushar\\.nuget\\packages\\",
-        "outputPath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\obj\\",
+        "outputPath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tushar\\AppData\\Roaming\\NuGet\\NuGet.Config",

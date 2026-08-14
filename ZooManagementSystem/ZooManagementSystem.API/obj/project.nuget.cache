@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nRKTexdS5D8=",
+  "dgSpecHash": "Pb+loOWWUXo=",
   "success": true,
-  "projectFilePath": "d:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj",
+  "projectFilePath": "D:\\CSE 2026\\C#\\project\\InfinityLoop-ZooManagementSystem\\ZooManagementSystem\\ZooManagementSystem.API\\ZooManagementSystem.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tushar\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\Tushar\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.11\\microsoft.aspnetcore.authentication.jwtbearer.10.0.11.nupkg.sha512",

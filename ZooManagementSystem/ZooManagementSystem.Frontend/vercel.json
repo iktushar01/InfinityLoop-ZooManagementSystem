@@ -14,8 +14,16 @@
       "destination": "/pages/enclosures.html"
     },
     {
+      "source": "/feeding.html",
+      "destination": "/pages/feeding.html"
+    },
+    {
       "source": "/tickets.html",
       "destination": "/pages/tickets.html"
+    },
+    {
+      "source": "/health.html",
+      "destination": "/pages/health.html"
     },
     {
       "source": "/reports.html",

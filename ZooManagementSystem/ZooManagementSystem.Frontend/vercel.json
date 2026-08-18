@@ -2,40 +2,76 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/keepers",
+      "destination": "/pages/keepers.html"
+    },
+    {
       "source": "/keepers.html",
       "destination": "/pages/keepers.html"
+    },
+    {
+      "source": "/animals",
+      "destination": "/pages/animals.html"
     },
     {
       "source": "/animals.html",
       "destination": "/pages/animals.html"
     },
     {
+      "source": "/enclosures",
+      "destination": "/pages/enclosures.html"
+    },
+    {
       "source": "/enclosures.html",
       "destination": "/pages/enclosures.html"
+    },
+    {
+      "source": "/feeding",
+      "destination": "/pages/feeding.html"
     },
     {
       "source": "/feeding.html",
       "destination": "/pages/feeding.html"
     },
     {
+      "source": "/tickets",
+      "destination": "/pages/tickets.html"
+    },
+    {
       "source": "/tickets.html",
       "destination": "/pages/tickets.html"
+    },
+    {
+      "source": "/health",
+      "destination": "/pages/health.html"
     },
     {
       "source": "/health.html",
       "destination": "/pages/health.html"
     },
     {
+      "source": "/reports",
+      "destination": "/pages/reports.html"
+    },
+    {
       "source": "/reports.html",
       "destination": "/pages/reports.html"
+    },
+    {
+      "source": "/add-animal",
+      "destination": "/pages/add-animal.html"
     },
     {
       "source": "/add-animal.html",
       "destination": "/pages/add-animal.html"
     },
     {
-  "source": "/pages/edit-animal",
-  "destination": "/pages/edit-animal.html"
-}
+      "source": "/edit-animal",
+      "destination": "/pages/edit-animal.html"
+    },
+    {
+      "source": "/edit-animal.html",
+      "destination": "/pages/edit-animal.html"
+    }
   ]
 }

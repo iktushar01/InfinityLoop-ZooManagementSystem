@@ -28,6 +28,14 @@
     {
       "source": "/reports.html",
       "destination": "/pages/reports.html"
-    }
+    },
+    {
+      "source": "/add-animal.html",
+      "destination": "/pages/add-animal.html"
+    },
+    {
+  "source": "/pages/edit-animal",
+  "destination": "/pages/edit-animal.html"
+}
   ]
 }
